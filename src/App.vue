@@ -1,17 +1,9 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import Navbar from './components/Navbar.vue';
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Lorum ipsum</RouterLink>
-        <RouterLink to="/">Lorum ipsum</RouterLink>
-        <RouterLink to="/">Lorum ipsum</RouterLink>
-        <RouterLink to="/">Lorum ipsum</RouterLink>
-      </nav>
-    </div>
-  </header>
+  <Navbar/>
   <RouterView />
 </template>
