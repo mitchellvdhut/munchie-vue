@@ -1,47 +1,48 @@
-<!-- src/components/NavBar.vue -->
 <template>
-  <nav class="bg-gray-800 fixed bottom-0 left-0 right-0">
-    <ul class="flex items-center justify-between px-4 py-4">
-      <li>
+  <nav class="bg-white fixed bottom-0 left-0 right-0 z-1">
+    <ul class="flex items-center justify-start px-4 py-4">
+      <li class="flex flex-col items-center w-1/3">
+        <div class="w-6 h-6 rounded-full mb-1">
+          <img src="../assets/icons/recipes-icon.png"/>
+        </div>
         <router-link
           to="/"
-          class="text-white text-md sm:text-base hover:text-green-400 transition-colors w-full text-center"
-          active-class="font-bold text-green-400"
+          class="text-white text-sm  text-black sm:text-base text-center"
+          active-class="font-semibold text-green-400"
         >
-          Page 1
+          Recepten
         </router-link>
       </li>
-      <li>
+      <li class="flex flex-col items-center w-1/3">
+        <div class="w-6 h-6 rounded-full mb-1">
+          <img src="../assets/icons/groups-icon.png"/>
+        </div>
         <router-link
           to="/page-2"
-          class="text-white text-md sm:text-base hover:text-green-400 transition-colors w-full text-center"
-          active-class="font-bold text-green-400"
+          class="text-white text-sm  text-black sm:text-base text-center"
+          active-class="font-semibold text-green-400"
         >
-          Page 2
+          Groepen
         </router-link>
       </li>
-      <li>
+      <li class="flex flex-col items-center w-1/3">
+        <div class="w-10 h-6 rounded-full mb-1">
+          <img src="../assets/icons/settings-icon.png"/>
+        </div>
         <router-link
           to="/page-3"
-          class="text-white text-md sm:text-base hover:text-green-400 transition-colors w-full text-center"
-          active-class="font-bold text-green-400"
+          class="text-white text-sm  text-black sm:text-base text-center"
+          active-class="font-semibold text-green-400"
         >
-          Page 3
-        </router-link>
-      </li>
-      <li>
-        <router-link
-          to="/page-4"
-          class="text-white text-md sm:text-base hover:text-green-400 transition-colors w-full text-center"
-          active-class="font-bold text-green-400"
-        >
-          Page 4
+          Instellingen
         </router-link>
       </li>
     </ul>
   </nav>
 </template>
 
-<script setup lang="ts">
-defineOptions({ name: 'NavBar' });
-</script>
+<style>
+nav{
+  box-shadow: 0px -4px 14px 0px rgba(0, 0, 0, 0.10);
+}
+</style>
