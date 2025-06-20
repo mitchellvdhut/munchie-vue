@@ -1,45 +1,55 @@
 <template>
-  <nav class="bg-white fixed bottom-0 left-0 right-0 z-1">
-    <ul class="flex items-center justify-start px-4 py-4">
-      <li class="flex flex-col items-center w-1/3">
-        <div class="w-6 h-6 rounded-full mb-1">
-          <img src="../assets/icons/recipes-icon.png"/>
+  <nav class="bg-white fixed bottom-0 left-0 right-0 z-10">
+    <ul class="flex items-center justify-around px-4 py-4">
+      <li
+        v-for="item in menuItems"
+        :key="item.path"
+        class="flex flex-col items-center flex-1"
+      >
+        <div class="rounded-full mb-1 w-6 h-6">
+          <img :src="item.icon" />
         </div>
         <router-link
-          to="/"
-          class="text-white text-sm  text-black sm:text-base text-center"
-          active-class="font-semibold text-green-400"
+          :to="item.path"
+          class="text-sm text-black sm:text-base text-center"
+          active-class="font-semibold"
         >
-          Recepten
-        </router-link>
-      </li>
-      <li class="flex flex-col items-center w-1/3">
-        <div class="w-6 h-6 rounded-full mb-1">
-          <img src="../assets/icons/groups-icon.png"/>
-        </div>
-        <router-link
-          to="/page-2"
-          class="text-white text-sm  text-black sm:text-base text-center"
-          active-class="font-semibold text-green-400"
-        >
-          Groepen
-        </router-link>
-      </li>
-      <li class="flex flex-col items-center w-1/3">
-        <div class="w-10 h-6 rounded-full mb-1">
-          <img src="../assets/icons/settings-icon.png"/>
-        </div>
-        <router-link
-          to="/page-3"
-          class="text-white text-sm  text-black sm:text-base text-center"
-          active-class="font-semibold text-green-400"
-        >
-          Instellingen
+          {{ item.label }}
         </router-link>
       </li>
     </ul>
   </nav>
 </template>
+
+<script>
+export default {
+  name: 'Navbar',
+  data() {
+    return {
+      menuItems: [
+        {
+          path: '/',
+          label: 'Recepten',
+          icon: new URL('@/assets/icons/recipes-icon.png', import.meta.url).href,
+          iconWidth: 'w-6 h-6',
+        },
+        {
+          path: '/page-2',
+          label: 'Groepen',
+          icon: new URL('@/assets/icons/groups-icon.png', import.meta.url).href,
+          iconWidth: 'w-6 h-6',
+        },
+        {
+          path: '/page-3',
+          label: 'Instellingen',
+          icon: new URL('@/assets/icons/settings-icon.png', import.meta.url).href,
+          iconWidth: 'w-10 h-6',
+        },
+      ],
+    };
+  },
+};
+</script>
 
 <style>
 nav{
