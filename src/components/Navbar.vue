@@ -7,8 +7,8 @@
         </div>
         <router-link
           to="/"
-          class="text-white text-sm  text-black sm:text-base text-center"
-          active-class="font-semibold text-green-400"
+          class="text-sm  text-black sm:text-base text-center"
+          active-class="font-semibold"
         >
           Recepten
         </router-link>
@@ -19,8 +19,8 @@
         </div>
         <router-link
           to="/page-2"
-          class="text-white text-sm  text-black sm:text-base text-center"
-          active-class="font-semibold text-green-400"
+          class="text-sm  text-black sm:text-base text-center"
+          active-class="font-semibold"
         >
           Groepen
         </router-link>
@@ -31,8 +31,8 @@
         </div>
         <router-link
           to="/page-3"
-          class="text-white text-sm  text-black sm:text-base text-center"
-          active-class="font-semibold text-green-400"
+          class="text-sm  text-black sm:text-base text-center"
+          active-class="font-semibold"
         >
           Instellingen
         </router-link>
