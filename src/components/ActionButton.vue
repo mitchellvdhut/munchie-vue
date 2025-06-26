@@ -25,3 +25,5 @@ export default {
 <style>
 
 </style>
+
+$route.params.id

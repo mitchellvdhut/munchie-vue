@@ -29,7 +29,7 @@ defineProps({
   },
   linkIconLeft: {
     type: String,
-    default: '/',
+    default: '/recipes-overview',
   },
   linkIconRight: {
     type: String,

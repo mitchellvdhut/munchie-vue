@@ -25,11 +25,6 @@ const props = defineProps({
   height: {
     type: [Number, String],
     default: null,
-  },
-  objectFit: {
-    type: String,
-    default: 'cover',
-    validator: (value) => ['fill', 'contain', 'cover', 'none', 'scale-down'].includes(value),
   }
 });
 </script>

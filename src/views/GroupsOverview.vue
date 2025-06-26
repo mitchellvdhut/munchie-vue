@@ -1,4 +1,3 @@
-<!-- src/views/PageFour.vue -->
 <script setup>
 import { ChevronLeft, ChevronRight } from 'lucide-vue-next'; // Importeert Lucide icons als components
 import ActionButton from '@/components/ActionButton.vue';
@@ -8,10 +7,10 @@ import sadMunchie from '@/assets/images/sad_munchie.png';
 </script>
 
 <template>
-  <TopNav :leftIcon="ChevronLeft" :rightIcon="ChevronRight" linkIconLeft="/page-1" linkIconRight="/page-3" heading="Mijn groepen" /> <!-- -->
+  <TopNav :leftIcon="ChevronLeft" :rightIcon="ChevronRight" linkIconLeft="/recipes-overview" linkIconRight="/create-group" heading="Mijn groepen" /> <!-- -->
   <div class="m-8 flex flex-col p-10 bg-white shadow-lg rounded-xl">
     <h4 class="p-3 text-center">Je hebt nog geen groepen</h4>
-    <router-link to="/page-5" class="m-auto">
+    <router-link to="/create-group" class="m-auto">
       <ActionButton
         class="p-3 bg-orange-400 text-white rounded-xl w-48"
         type="submit"

@@ -6,7 +6,7 @@
           <img src="../assets/icons/recipes-icon.png"/>
         </div>
         <router-link
-          to="/"
+          to="/recipes-overview"
           class="text-sm  text-black sm:text-base text-center"
           active-class="font-semibold"
         >
@@ -18,7 +18,7 @@
           <img src="../assets/icons/groups-icon.png"/>
         </div>
         <router-link
-          to="/page-2"
+          to="/groups-overview"
           class="text-sm  text-black sm:text-base text-center"
           active-class="font-semibold"
         >
@@ -30,7 +30,7 @@
           <img src="../assets/icons/settings-icon.png"/>
         </div>
         <router-link
-          to="/page-3"
+          to="/settings-overview"
           class="text-sm  text-black sm:text-base text-center"
           active-class="font-semibold"
         >

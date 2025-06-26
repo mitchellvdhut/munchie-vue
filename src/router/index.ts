@@ -1,38 +1,37 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
-import PageOne from '@/views/PageOne.vue'
-import PageTwo from '@/views/PageTwo.vue'
-import PageThree from '@/views/PageThree.vue'
-import PageFour from '@/views/PageFour.vue'
-import PageFive from '@/views/PageFive.vue'
+import RecipesOverview from '@/views/RecipesOverview.vue'
+import GroupsOverview from '@/views/GroupsOverview.vue'
+import GroupDetail from '@/views/GroupDetail.vue'
+import CreateGroup from '@/views/CreateGroup.vue'
+import SettingsOverview from '@/views/SettingsOverview.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'page 1',
-      component: PageOne,
+      name: 'recipes overview',
+      component: RecipesOverview,
     },
     {
-      path: '/page-2',
-      name: 'page 2',
-      component: PageTwo,
+      path: '/group-detail',
+      name: 'group detail',
+      component: GroupDetail,
     },
     {
-      path: '/page-3',
-      name: 'page 3',
-      component: PageThree,
+      path: '/create-group',
+      name: 'create group',
+      component: CreateGroup,
     },
     {
-      path: '/page-4',
-      name: 'page 4',
-      component: PageFour,
+      path: '/groups-overview',
+      name: 'group overview',
+      component: GroupsOverview,
     },
     {
-      path: '/page-5',
-      name: 'page 5',
-      component: PageFive,
+      path: '/settings-overview',
+      name: 'settings overview',
+      component: SettingsOverview,
     },
   ],
 })
