@@ -9,7 +9,7 @@ import sadMunchie from '@/assets/images/sad_munchie.png';
 <template>
   <TopNav :leftIcon="ChevronLeft" :rightIcon="ChevronRight" linkIconLeft="/recipes-overview" linkIconRight="/create-group" heading="Mijn groepen" /> <!-- -->
   <div class="m-8 flex flex-col p-10 bg-white shadow-lg rounded-xl">
-    <h4 class="p-3 text-center">Je hebt nog geen groepen</h4>
+    <h4 class="p-3 text-center font-primary">Je hebt nog geen groepen</h4>
     <router-link to="/create-group" class="m-auto">
       <ActionButton
         class="p-3 bg-orange-400 text-white rounded-xl w-48"
