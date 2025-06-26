@@ -1,7 +1,7 @@
-<script setup>
-import TopNav from '@/components/TopNav.vue'; // Importeer TopNav als je deze gebruikt
+<script>
+import TopNav from '@/components/TopNav.vue'
 </script>
 
 <template>
-    <TopNav />
+   <TopNav/>
 </template>

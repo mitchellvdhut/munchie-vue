@@ -2,7 +2,6 @@
   <img
     :src="src"
     :alt="alt"
-    :style="imageStyles"
     :width="width"
     :height="height"
   />

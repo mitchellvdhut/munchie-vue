@@ -1,61 +1,39 @@
-<!-- TopNav.vue -->
+<!-- src/components/TopNav.vue -->
 <template>
   <nav class="flex p-6">
-    <!-- Checkt wat de prop input is ('ChevronRight, ChevronLeft, etc.'). Kijkt of er sprake is van een prop icon -->
-    <router-link :to="leftIconLink">
-    <component
-      :is="leftIconComponent"
-      v-if="leftIconComponent"
-    />
+    <router-link v-if="leftIcon && linkIconLeft" :to="linkIconLeft"> <!-- Checkt of de Lucide input bestaat -->
+      <component :is="leftIcon" class="nav-icon"/>
     </router-link>
     <h1 class="m-auto font-semibold">{{ heading }}</h1>
-    <router-link :to="rightIconLink">
-    <component
-      :is="rightIconComponent"
-      v-if="rightIconComponent"
-    />
+    <router-link v-if="rightIcon && linkIconRight" :to="linkIconRight">
+      <component :is="rightIcon" class="nav-icon"/>
     </router-link>
   </nav>
 </template>
 
 <script setup>
+import { defineProps } from 'vue';
 
-import { computed } from 'vue'; // Voor het afhandelen van dynamische prop icons (reactief)
-import * as LucideIcons from 'lucide-vue-next';
-
-// Definieer props met Composition API
-const props = defineProps({
+defineProps({
   leftIcon: {
-    type: String,
-    default: 'ChevronLeft', // Standaard chevron links
-    validator: (value) => Object.keys(LucideIcons).includes(value), // valideert of er sprake is van een geldige icon uit Lucide
+    type: [Object, Function], // Accepteert Lucide als object en functie om het als component props mee te geven en conditioneel te renderen
+    default: null,
   },
   rightIcon: {
-    type: String,
-    default: '', // Geen standaard rechter pictogram
-    validator: (value) => Object.keys(LucideIcons).includes(value),
+    type: [Object, Function],
+    default: null,
   },
   heading: {
     type: String,
-    default: 'Tekst hier...', // Standaard titel in het midden 
+    default: 'Tekst hier...',
   },
-  leftIconLink: {
+  linkIconLeft: {
     type: String,
-    default: '/' // Standaard route link is home
+    default: '/',
   },
-  rightIconLink: {
+  linkIconRight: {
     type: String,
-    default: '/'
-  }
-});
-
-// Computed properties voor dynamische icon links
-const leftIconComponent = computed(() => {
-  return LucideIcons[props.leftIcon] || null;
-});
-
-// Computed properties voor dynamische icon rechts
-const rightIconComponent = computed(() => {
-  return LucideIcons[props.rightIcon] || null;
+    default: '/',
+  },
 });
 </script>
