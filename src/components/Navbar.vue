@@ -6,9 +6,9 @@
           <img src="../assets/icons/recipes-icon.png"/>
         </div>
         <router-link
-          to="/"
-          class="text-white text-sm  text-black sm:text-base text-center"
-          active-class="font-semibold text-green-400"
+          to="/recipes-overview"
+          class="text-sm  text-black sm:text-base text-center"
+          active-class="font-semibold"
         >
           Recepten
         </router-link>
@@ -18,9 +18,9 @@
           <img src="../assets/icons/groups-icon.png"/>
         </div>
         <router-link
-          to="/page-2"
-          class="text-white text-sm  text-black sm:text-base text-center"
-          active-class="font-semibold text-green-400"
+          to="/groups-overview"
+          class="text-sm  text-black sm:text-base text-center"
+          active-class="font-semibold"
         >
           Groepen
         </router-link>
@@ -30,9 +30,9 @@
           <img src="../assets/icons/settings-icon.png"/>
         </div>
         <router-link
-          to="/page-3"
-          class="text-white text-sm  text-black sm:text-base text-center"
-          active-class="font-semibold text-green-400"
+          to="/settings-overview"
+          class="text-sm  text-black sm:text-base text-center"
+          active-class="font-semibold"
         >
           Instellingen
         </router-link>
