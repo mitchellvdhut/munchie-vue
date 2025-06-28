@@ -6,7 +6,7 @@
           <img src="../assets/icons/recipes-icon.png"/>
         </div>
         <router-link
-          to="/recipes-overview"
+          to="/"
           class="text-sm  text-black sm:text-base text-center"
           active-class="font-semibold"
         >
