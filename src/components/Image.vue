@@ -2,8 +2,7 @@
   <img
     :src="src"
     :alt="alt"
-    :width="width"
-    :height="height"
+    :width="imageWidth"
   />
 </template>
 
@@ -18,21 +17,9 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  width: {
-    type: [Number, String],
-    default: null,
-  },
-  height: {
+  imageWidth: {
     type: [Number, String],
     default: null,
   }
 });
 </script>
-
-<style scoped>
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-</style>
