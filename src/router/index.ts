@@ -2,9 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router';
 import RecipesOverview from '@/views/RecipesOverview.vue';
 import GroupsOverview from '@/views/GroupsOverview.vue';
 import GroupDetail from '@/views/GroupDetail.vue';
-import CreateGroup from '@/views/CreateGroup.vue';
 import SettingsOverview from '@/views/SettingsOverview.vue';
 import PageNotFound from '@/views/PageNotFound.vue';
+import CreateGroup from '@/views/CreateGroup.vue'
 
 const routes = [
   {
