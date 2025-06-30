@@ -62,7 +62,7 @@ export default defineComponent({
     :rightIcon="Check"
     linkIconLeft="/groups-overview"
     :onRightIconClick="validateAndSubmit"
-    heading="Nieuwe groep"
+    heading="Groep maken"
   />
   <div class="relative w-[180px] h-[180px] m-auto mt-12">
     <Image
@@ -70,13 +70,14 @@ export default defineComponent({
       :src="imageSrc"
       :imageWidth="180"
       alt="Groep afbeelding"
+      style="box-shadow: -1px -1px 101px 0px rgba(99,102,241,0.26);"
     />
     <label class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer">
       <SwitchCamera class="stroke-white bg-indigo-500 rounded-full p-[8px]" :size="40" />
       <input type="file" accept="image/*" class="hidden" @change="handleImageChange" />
     </label>
   </div>
-  <form>
+  <form @submit.prevent="validateAndSubmit">
     <div class="grid m-5 gap-3">
       <label>Groep naam</label>
       <input
@@ -88,6 +89,7 @@ export default defineComponent({
         ]"
         required
         @input="handleInput"
+        maxlength="99"
       />
     </div>
   </form>

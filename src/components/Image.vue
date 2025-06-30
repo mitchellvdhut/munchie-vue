@@ -3,7 +3,7 @@
   <img
     :src="src"
     :alt="alt"
-    :style="{ width: imageWidth ? `${imageWidth}px !important` : 'auto', height: imageWidth ? `${imageWidth}px` : 'auto', maxWidth: imageWidth ? `${imageWidth}px` : '100%' }"
+    :style="{ width: imageWidth ? `${imageWidth}px` : 'auto', height: imageWidth ? `${imageWidth}px` : 'auto', maxWidth: imageWidth ? `${imageWidth}px` : '100%' }"
     :class="['object-cover', $attrs.class]"
   />
 </template>
