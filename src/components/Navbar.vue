@@ -7,7 +7,7 @@
         </div>
         <router-link
           to="/"
-          class="text-sm  text-black sm:text-base text-center"
+          class="text-sm sm:text-base text-center"
           active-class="font-semibold"
         >
           Recepten
@@ -19,7 +19,7 @@
         </div>
         <router-link
           to="/groups-overview"
-          class="text-sm  text-black sm:text-base text-center"
+          class="text-sm sm:text-base text-center"
           active-class="font-semibold"
         >
           Groepen
@@ -31,7 +31,7 @@
         </div>
         <router-link
           to="/settings-overview"
-          class="text-sm  text-black sm:text-base text-center"
+          class="text-sm sm:text-base text-center"
           active-class="font-semibold"
         >
           Instellingen

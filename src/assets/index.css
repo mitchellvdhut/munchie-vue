@@ -73,6 +73,7 @@
 @layer base {
   * {
     @apply border-border;
+    @apply text-gray-800
   }
   body {
     @apply bg-background text-foreground;

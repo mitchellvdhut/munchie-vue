@@ -1,13 +1,18 @@
 <!-- src/components/TopNav.vue -->
 <template>
   <nav class="flex p-6">
-    <router-link v-if="leftIcon && linkIconLeft" :to="linkIconLeft"> <!-- Checkt of de Lucide input bestaat -->
-      <component :is="leftIcon" class="nav-icon"/>
+    <router-link v-if="leftIcon && linkIconLeft" :to="linkIconLeft">
+      <component :is="leftIcon" class="nav-icon" />
     </router-link>
     <h1 class="m-auto font-secondary text-xl font-bold">{{ heading }}</h1>
-    <router-link v-if="rightIcon && linkIconRight" :to="linkIconRight">
-      <component :is="rightIcon" class="nav-icon"/>
-    </router-link>
+    <div v-if="rightIcon">
+      <router-link v-if="linkIconRight" :to="linkIconRight">
+        <component :is="rightIcon" class="nav-icon" />
+      </router-link>
+      <button v-else-if="onRightIconClick" @click="onRightIconClick">
+        <component :is="rightIcon" class="nav-icon" />
+      </button>
+    </div>
   </nav>
 </template>
 
@@ -16,7 +21,7 @@ import { defineProps } from 'vue';
 
 defineProps({
   leftIcon: {
-    type: [Object, Function], // Accepteert Lucide als object en functie om het als component props mee te geven en conditioneel te renderen
+    type: [Object, Function],
     default: null,
   },
   rightIcon: {
@@ -29,11 +34,15 @@ defineProps({
   },
   linkIconLeft: {
     type: String,
-    default: '/recipes-overview',
+    default: '/',
   },
   linkIconRight: {
     type: String,
-    default: '/',
+    default: null,
+  },
+  onRightIconClick: {
+    type: Function,
+    default: null,
   },
 });
 </script>
