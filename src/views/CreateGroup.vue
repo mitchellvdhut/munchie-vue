@@ -33,7 +33,7 @@ export default defineComponent({
         return;
       }
       isInvalid.value = false;
-      router.push({ name: 'group detail', params: { id: groupName.value } });
+      router.push({ name: 'group detail', params: { id: groupName.value, img: imageSrc.value } });
     };
 
     const handleInput = () => {

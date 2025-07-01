@@ -4,12 +4,12 @@
     <router-link v-if="leftIcon && linkIconLeft" :to="linkIconLeft">
       <component :is="leftIcon" class="nav-icon" />
     </router-link>
-    <h1 class="m-auto font-secondary text-xl font-bold">{{ heading }}</h1>
-    <div v-if="rightIcon">
-      <router-link v-if="linkIconRight" :to="linkIconRight">
-        <component :is="rightIcon" class="nav-icon" />
-      </router-link>
-      <button v-else-if="onRightIconClick" @click="onRightIconClick">
+    <div class="m-auto">
+      <h1 class="font-secondary inline-block text-xl font-bold">{{ heading }}</h1>
+      <slot></slot>
+    </div>
+    <div v-if="rightIcon && onRightIconClick">
+      <button @click="onRightIconClick">
         <component :is="rightIcon" class="nav-icon" />
       </button>
     </div>
@@ -21,11 +21,11 @@ import { defineProps } from 'vue';
 
 defineProps({
   leftIcon: {
-    type: [Object, Function],
+    type: [Function, Object],
     default: null,
   },
   rightIcon: {
-    type: [Object, Function],
+    type: [Function, Object],
     default: null,
   },
   heading: {
@@ -36,13 +36,9 @@ defineProps({
     type: String,
     default: '/',
   },
-  linkIconRight: {
-    type: String,
-    default: null,
-  },
   onRightIconClick: {
     type: Function,
-    default: null,
+    default: '/',
   },
 });
 </script>

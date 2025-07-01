@@ -1,13 +1,15 @@
 <script setup>
 import { ChevronLeft, Plus } from 'lucide-vue-next'; // Importeert Lucide icons als components
-import ActionButton from '@/components/ActionButton.vue';
 import Image from '@/components/Image.vue';
 import TopNav from '@/components/TopNav.vue';
 import munchieOverviewImage from '@/assets/images/munchie_groups_overview.png';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 </script>
 
 <template>
-  <TopNav :leftIcon="ChevronLeft" :rightIcon="Plus" linkIconLeft="/recipes-overview" linkIconRight="/create-group" heading="Mijn groepen" />
+  <TopNav :leftIcon="ChevronLeft" :rightIcon="Plus" linkIconLeft="/recipes-overview" :onRightIconClick="() => router.push({ name: 'create group'})" heading="Mijn groepen" />
   <Image
     :src="munchieOverviewImage"
     alt="Happy Munchie Image"
