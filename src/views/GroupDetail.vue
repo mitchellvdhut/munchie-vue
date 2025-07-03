@@ -1,5 +1,5 @@
-<script>
-import { defineComponent, ref } from 'vue';
+<script lang="ts">
+import { defineComponent, ref, computed } from 'vue';
 import { onMounted } from 'vue'
 import TopNav from '@/components/TopNav.vue';
 import { ChevronLeft, SquarePen, Plus} from 'lucide-vue-next';
@@ -18,21 +18,25 @@ export default defineComponent({
     ActionButton,
     Plus
   },
+
   setup() {
 
     const imageSrc = ref(placeholderImage); // Gebruik de geïmporteerde afbeelding
-    const isSessionActive = ref(false); // Boolean voor sessie-status
 
+    function computedStatus(id: number){
+      if (id % 2 === 0) {
+        return 'active'
+      } else if (id % 3 === 0){
+        return 'inactive'
+      } else {
+        return 'finished'
+      }
+    }
 
     const {fetchMembers, error, members, loading} = useMember()
     onMounted(async () => {
       await fetchMembers()
     })
-
-    const handleButtonStatus = () => {
-       isSessionActive.value = !isSessionActive.value; // Toggle de status
-    }
-
 
     return {
       ChevronLeft,
@@ -41,8 +45,7 @@ export default defineComponent({
       error,
       members,
       loading,
-      handleButtonStatus,
-      isSessionActive
+      computedStatus
     };
   }  
 })
@@ -87,11 +90,12 @@ export default defineComponent({
     </div>
     <SessionCard
       v-for="member in members"
+      :key="computedStatus(member.id.value)"
+      :sessionStatus="computedStatus(member.id.value)"
       :sessionCardImage="member.picture.thumbnail"
-      :sessionCardButtonText="isSessionActive ? 'Stop' : 'Start'"
+      :sessionCardButtonText="test"
       sessionCardTitle="Etentje"
       sessionCardDate="07/01/2025"
-      @click="handleButtonStatus"
     />
   </div>
 </template>

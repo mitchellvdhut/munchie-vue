@@ -2,7 +2,7 @@
 <template>
   <nav class="flex p-6">
     <router-link v-if="leftIcon && linkIconLeft" :to="linkIconLeft">
-      <component :is="leftIcon" class="nav-icon" />
+      <component :is="leftIcon" class="nav-icon"/>
     </router-link>
     <div class="m-auto">
       <h1 class="font-secondary inline-block text-xl font-bold">{{ heading }}</h1>
@@ -10,7 +10,7 @@
     </div>
     <div v-if="rightIcon && onRightIconClick">
       <button @click="onRightIconClick">
-        <component :is="rightIcon" class="nav-icon" />
+        <component :is="rightIcon" class="nav-icon"/>
       </button>
     </div>
   </nav>
