@@ -1,6 +1,3 @@
-export interface PaginatedResult<T> {
-  count: number,
-  next: string | null,
-  previous: string | null,
+export interface ApiResult<T> {
   results: T[]
 }
