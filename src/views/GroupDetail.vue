@@ -56,7 +56,7 @@ export default defineComponent({
     :leftIcon="ChevronLeft"
     :rightIcon="SquarePen"
     linkIconLeft="/groups-overview"
-    :onRightIconClick="editGroup"
+    onRightIconClick="/"
     :heading="$route.params.id"
   >
     <div class="float-right ml-5">
@@ -86,14 +86,13 @@ export default defineComponent({
         class="font-secondary"
         value="Sessie toevoegen"
       ></ActionButton>
-      <Plus class="ml-2" size="20" />
+      <Plus class="ml-2" :size="20" />
     </div>
     <SessionCard
       v-for="member in members"
-      :key="computedStatus(member.id.value)"
-      :sessionStatus="computedStatus(member.id.value)"
+      :key="computedStatus(member.location.postcode)"
+      :sessionStatus="computedStatus(member.location.postcode)"
       :sessionCardImage="member.picture.thumbnail"
-      :sessionCardButtonText="test"
       sessionCardTitle="Etentje"
       sessionCardDate="07/01/2025"
     />

@@ -1,5 +1,9 @@
 export interface Member {
   picture: {
-    large: string
+    thumbnail: string
   }
+  location: {
+    postcode: number
+  }
+
 }

@@ -16,7 +16,6 @@ const buttonText = computed(() => {
 const props = withDefaults(defineProps<{
   sessionCardTitle: string,
   sessionCardDate: string,
-  sessionCardButtonText: string,
   sessionCardImage: string,
   sessionStatus: 'active' | 'inactive' | 'finished'
 }>(), {
@@ -24,8 +23,6 @@ const props = withDefaults(defineProps<{
     'Tekst hier...',
   sessionCardDate:
     'Datum hier...',
-  sessionCardButtonText:
-    'Start'
 });
 
 </script>
