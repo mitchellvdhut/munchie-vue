@@ -1,4 +1,5 @@
 import animate from 'tailwindcss-animate'
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -56,6 +57,10 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      fontFamily: {
+        'primary': ['"Inter"', ...defaultTheme.fontFamily.sans],
+        'secondary': ['"Nunito"', ...defaultTheme.fontFamily.sans]
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
