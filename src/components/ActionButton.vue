@@ -11,7 +11,7 @@ export default {
       default: 'button',
     },
     value: {
-      type: [String, Number],
+      type: [String, Number, Object],
       default: 'Button tekst...',
     },
     formmethod: {

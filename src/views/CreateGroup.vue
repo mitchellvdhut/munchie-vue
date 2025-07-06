@@ -13,6 +13,7 @@ export default defineComponent({
     SwitchCamera,
   },
   setup() {
+    
     const router = useRouter();
     const imageSrc = ref('https://placehold.co/150x150');
     const groupName = ref('');

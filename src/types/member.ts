@@ -5,5 +5,8 @@ export interface Member {
   location: {
     postcode: number
   }
+  name: {
+    first: string
+  }
 
 }
