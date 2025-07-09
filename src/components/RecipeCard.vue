@@ -26,7 +26,7 @@
 import { Clock, Heart, X } from 'lucide-vue-next';
 import type { Recipe } from '@/types'
 
-defineProps<{recipe: Recipe}>()
+const props = defineProps<{recipe: Recipe}>()
 
 </script>
 
