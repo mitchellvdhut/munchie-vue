@@ -6,10 +6,10 @@
         <h2 class="font-bold text-xl leading-tight inline-block">
           {{recipe.name}}
         </h2>
-        <div class="flex flex-row align-middle gap-2"><Clock class="inline-block"/> <span>30 min.</span></div>
+        <div class="flex flex-row align-middle gap-2"><Clock class="inline-block"/> <span>{{recipe.preparationTime}}</span></div>
       </div>
-      <p class="color-gray-600">Italiaans</p>
-      <p class="color-gray-600">6 Ingrediënten</p>
+      <p class="color-gray-600">{{recipe.kitchen}}</p>
+      <p class="color-gray-600">{{recipe.ingredients.length}} Ingrediënten</p>
     </div>
     <div class="flex flex-row justify-center p-6 gap-4">
       <button class="bg-gray-100 p-2 rounded-lg w-full flex justify-center">

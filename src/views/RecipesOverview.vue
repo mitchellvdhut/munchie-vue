@@ -7,4 +7,14 @@
 
 <script setup lang="ts">
 import RecipeCard from '@/components/RecipeCard.vue'
+
+const recipe = {
+  id: 1,
+  name: 'test',
+  kitchen: 'Italian',
+  ingredients: [],
+  preparations: [],
+  preparationTime: '30 min.',
+  images: ['margherita_pizza'],
+}
 </script>
