@@ -1,16 +1,19 @@
 <template>
   <div class="rounded-xl bg-white shadow-lg flex flex-col overflow-hidden">
     <img src="../../public/margherita_pizza.png" alt="margherita pizza"/>
-    <div class="flex flex-col justify-center p-6 gap-4">
-      <h2 class="font-bold text-xl leading-tight">
-        Margherita pizza
-      </h2>
+    <div class="flex flex-col justify-center p-6 pb-0 gap-4">
+      <div class="flex flex-row justify-between">
+        <h2 class="font-bold text-xl leading-tight inline-block">
+          {{recipe.name}}
+        </h2>
+        <div class="flex flex-row align-middle gap-2"><Clock class="inline-block"/> <span>30 min.</span></div>
+      </div>
       <p class="color-gray-600">Italiaans</p>
       <p class="color-gray-600">6 Ingrediënten</p>
     </div>
     <div class="flex flex-row justify-center p-6 gap-4">
       <button class="bg-gray-100 p-2 rounded-lg w-full flex justify-center">
-        <X color="white"/>
+        <X/>
       </button>
       <button class="bg-orange-500 p-2 rounded-lg w-full flex justify-center">
         <Heart color="white"/>
@@ -20,7 +23,10 @@
 </template>
 
 <script setup lang="ts">
-import { Heart, X } from 'lucide-vue-next';
+import { Clock, Heart, X } from 'lucide-vue-next';
+import type { Recipe } from '@/types'
+
+const props = defineProps<{recipe: Recipe}>()
 
 </script>
 
