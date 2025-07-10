@@ -1,27 +1,19 @@
-<script lang="ts">
-import { defineComponent, ref, computed } from 'vue';
-import { onMounted } from 'vue'
-import TopNav from '@/components/TopNav.vue';
-import { ChevronLeft, SquarePen, Plus} from 'lucide-vue-next';
-import Image from '@/components/Image.vue'
+<script lang="ts" setup>
 import placeholderImage from '@/assets/images/placeholder_ruben.jpg'; // Importeer de afbeelding
-import useMember from '@/composables/useMembers';
+import Image from '@/components/Image.vue';
 import SessionCard from '@/components/SessionCard.vue';
-import ActionButton from '@/components/ActionButton.vue';
+import useMember from '@/composables/useMembers';
+import { ChevronLeft, Plus, SquarePen } from 'lucide-vue-next';
+import { onMounted, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useAppStore } from '../stores/appStore';
 
-export default defineComponent({
-  name: 'GroupDetail',
-  components: {
-    TopNav,
-    Image,
-    SessionCard,
-    ActionButton,
-    Plus
-  },
 
-  setup() {
 
     const imageSrc = ref(placeholderImage); // Gebruik de geïmporteerde afbeelding
+    const appStore = useAppStore()
+    const router = useRouter()
+    const route = useRoute()
 
     function computedStatus(id: number){
       if (id % 2 === 0) {
@@ -38,28 +30,22 @@ export default defineComponent({
       await fetchMembers()
     })
 
-    return {
-      ChevronLeft,
-      SquarePen,
-      imageSrc,
-      error,
-      members,
-      loading,
-      computedStatus
-    };
-  }  
+onMounted(() => {
+  appStore.setTopNavMeta( {
+    leftIcon: ChevronLeft,
+    rightIcon: SquarePen,
+    onLeftIconClick: () => router.push('/groups-overview'),
+    onRightIconClick: () => router.push('/'),
+    title: route.params.id.toString()
+  })
 })
+
+
 </script>
 
 <template>
-  <TopNav
-    :leftIcon="ChevronLeft"
-    :rightIcon="SquarePen"
-    linkIconLeft="/groups-overview"
-    onRightIconClick="/"
-    :heading="$route.params.id"
-  >
-    <div class="float-right ml-5">
+  <Teleport to="#topNavTitle">
+  <div class="float-right ml-5">
       <Image
         v-for="member in members"
         class="-ml-3 rounded-2xl inline-block"
@@ -69,7 +55,7 @@ export default defineComponent({
         style="box-shadow: -1px -1px 101px 0px rgba(99,102,241,0.26);"
       />
     </div>
-  </TopNav>
+  </Teleport>
   <div class="relative w-[180px] h-[180px] m-auto mt-12">
     <Image
       class="rounded-2xl border-2 border-white"
@@ -82,10 +68,7 @@ export default defineComponent({
   <div class="m-7">
     <h1 class="font-secondary mb-5 inline-block text-xl font-bold">Sessies</h1>
     <div class="float-right flex items-center">
-      <ActionButton
-        class="font-secondary"
-        value="Sessie toevoegen"
-      ></ActionButton>
+      <button class="font-secondary" value="Sessie toevoegen">Sessie toevoegen</button>
       <Plus class="ml-2" :size="20" />
     </div>
     <SessionCard

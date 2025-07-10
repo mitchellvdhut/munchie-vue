@@ -1,49 +1,35 @@
-<script lang="ts">
-import { defineComponent} from 'vue';
-import { onMounted } from 'vue'
-import TopNav from '@/components/TopNav.vue';
-import { ChevronLeft, Plus, ChevronRight} from 'lucide-vue-next';
-import Image from '@/components/Image.vue'
-import useMember from '@/composables/useMembers';
-import ActionButton from '@/components/ActionButton.vue';
+<script lang="ts" setup>
 import GroupCard from '@/components/GroupCard.vue';
+import Image from '@/components/Image.vue';
+import useMember from '@/composables/useMembers';
+import { ChevronLeft, Plus, ChevronRight } from 'lucide-vue-next';
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import { useAppStore } from '../stores/appStore';
 
-export default defineComponent({
-  name: 'GroupOverview',
-  components: {
-    TopNav,
-    Image,
-    GroupCard,
-    ActionButton,
-  },
+    const appStore = useAppStore()
+    const router = useRouter()
 
-  setup() {
 
     const {fetchMembers, error, members, loading} = useMember()
     onMounted(async () => {
       await fetchMembers()
     })
 
-    return {
-      ChevronLeft,
-      ChevronRight,
-      error,
-      members,
-      loading,
-      Plus
-    };
-  }  
+    
+onMounted(() => {
+  appStore.setTopNavMeta( {
+    leftIcon: ChevronLeft,
+    rightIcon: Plus,
+    onLeftIconClick: () => router.push('/groups-overview'),
+    onRightIconClick: () => router.push('/create-group'),
+    title: 'Mijn groepen',
+  })
 })
+
 </script>
 
 <template>
-  <TopNav
-    :leftIcon="ChevronLeft"
-    :rightIcon="Plus"
-    linkIconLeft="/"
-    onRightIconClick="/create-group"
-    heading="Mijn groepen"
-  ></TopNav>
 <div class="relative m-auto mt-12">
   </div>
   <div class="m-7">

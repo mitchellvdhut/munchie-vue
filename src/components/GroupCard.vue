@@ -5,6 +5,7 @@ const props = withDefaults(defineProps<{
   groupCardTitle: string,
   groupCardImage: string,
   groupCardGroupImage: string
+  groupCardLink: string
 }>(), {
 });
 
@@ -24,6 +25,8 @@ const props = withDefaults(defineProps<{
       <div class="ml-4">
         <h1 class="font-secondary inline-block text-xl font-bold">{{ groupCardTitle }}</h1>
         <slot></slot>
+      </div>
+      <div>
       </div>
     </div>
   </div>

@@ -5,12 +5,23 @@ import GroupDetail from '@/views/GroupDetail.vue';
 import SettingsOverview from '@/views/SettingsOverview.vue';
 import PageNotFound from '@/views/PageNotFound.vue';
 import CreateGroup from '@/views/CreateGroup.vue'
+import RecipeDetails from '@/views/RecipeDetails.vue'
 
 const routes = [
   {
     path: '/',
     name: 'recipes overview',
     component: RecipesOverview,
+    meta: {
+      title: 'Recipes overview',
+    },
+    children: [
+      {
+        path: '/details',
+        name: 'details',
+        component: RecipeDetails,
+      },
+    ]
   },
   {
     path: '/create-group',

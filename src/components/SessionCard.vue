@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Image from '@/components/Image.vue';
-import ActionButton from '@/components/ActionButton.vue'
 import { computed } from 'vue';
 
 const buttonText = computed(() => {
@@ -49,12 +48,13 @@ const props = withDefaults(defineProps<{
         <h4 class="font-secondary">{{ sessionCardDate }}</h4>
       </div>
     </div>
-    <ActionButton
-      class="bg-orange-500 p-3 w-24 font-secondary text-white rounded-xl"
-      :value="buttonText"
-      @click=""
+    <button 
+      class="bg-orange-500 p-3 w-24 font-secondary text-white rounded-xl" 
+      :value="buttonText" 
       v-if="sessionStatus !== 'finished'"
-    ></ActionButton>
+    >
+      {{ buttonText }}
+    </button>
   </div>
   </Transition>
 </template>
