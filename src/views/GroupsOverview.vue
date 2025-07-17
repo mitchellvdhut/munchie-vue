@@ -2,7 +2,7 @@
 import GroupCard from '@/components/GroupCard.vue';
 import Image from '@/components/Image.vue';
 import useMember from '@/composables/useMembers';
-import { ChevronLeft, Plus, ChevronRight } from 'lucide-vue-next';
+import { ChevronLeft, Plus, ChevronRight} from 'lucide-vue-next';
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAppStore } from '../stores/appStore';
@@ -38,17 +38,8 @@ onMounted(() => {
       :key="member.location.postcode"
       :groupCardImage="member.picture.thumbnail"
       :groupCardTitle="member.name.first"
+      :groupTeamMembers="members"
     >
-    <div class="ml-3">
-    <Image
-        v-for="member in members"
-        class="-ml-3 rounded-2xl inline-block"
-        :src="member.picture.thumbnail"
-        :imageWidth="30"
-        alt="Groep afbeelding"
-        style="box-shadow: -1px -1px 101px 0px rgba(99,102,241,0.26);"
-      />
-      </div>
     </GroupCard>
   </div>
 </template>

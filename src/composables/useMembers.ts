@@ -13,7 +13,7 @@ export default function useMember() {
   const fetchMembers = async () => {
     loading.value = true;
     try {
-      const results = await api.get<ApiResult<Member>>('/?results=6')
+      const results = await api.get<ApiResult<Member>>('/?results=12')
       members.value = results.results
     } catch (err) {
       error.value = err as AxiosError;
