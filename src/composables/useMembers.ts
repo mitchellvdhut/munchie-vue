@@ -5,7 +5,7 @@ import type { AxiosError } from 'axios'
 import type { ApiResult, Member } from '@/types'
 
 export default function useMember() {
-  
+
   const members: Ref<Member[]> = ref([]);
   const loading: Ref<boolean> = ref(false);
   const error: Ref<AxiosError | null> = ref(null);

@@ -8,8 +8,6 @@ import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useAppStore } from '../stores/appStore';
 
-
-
     const imageSrc = ref(placeholderImage); // Gebruik de geïmporteerde afbeelding
     const appStore = useAppStore()
     const router = useRouter()
