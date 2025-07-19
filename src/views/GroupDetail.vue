@@ -24,6 +24,7 @@ import { useAppStore } from '../stores/appStore';
     }
 
     const {fetchMembers, error, members, loading} = useMember()
+
     onMounted(async () => {
       await fetchMembers()
     })
@@ -69,6 +70,9 @@ onMounted(() => {
       <button class="font-secondary" value="Sessie toevoegen">Sessie toevoegen</button>
       <Plus class="ml-2" :size="20" />
     </div>
+    <div v-if="loading">Sessies laden...</div>
+    <div v-else-if="error">Error: {{ error.message || error }}</div>
+    <div v-else>
     <SessionCard
       v-for="member in members"
       :key="computedStatus(member.location.postcode)"
@@ -77,5 +81,7 @@ onMounted(() => {
       sessionCardTitle="Etentje"
       sessionCardDate="07/01/2025"
     />
+    </div>
+    <p v-if="!members.length">Geen sessies gevonden</p>
   </div>
 </template>
